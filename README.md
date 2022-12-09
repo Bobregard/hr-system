@@ -1,5 +1,5 @@
 # hr-system
-https://github.com/Bobregard/https://github.com/Bobregard/hr-system/actions/workflows/dotnet.yml/badge.svg
+https://github.com/Bobregard/hr-system/actions/workflows/dotnet.yml/badge.svg
 System to store jobs and apply for a job functionality
 
 Main functionalities:
