@@ -1,4 +1,5 @@
 # hr-system
+https://github.com/Bobregard/https://github.com/Bobregard/hr-system/actions/workflows/dotnet.yml/badge.svg
 System to store jobs and apply for a job functionality
 
 Main functionalities:
@@ -6,7 +7,7 @@ Main functionalities:
 
 - As a default user, I want to be able to register in the website.
 
-- As a user, I want to be able to apply for a job.
+- As a default or logged in user, I want to be able to apply for a job.
 
 - As an HR, I want to be able to see all people who applied for a position.
 
