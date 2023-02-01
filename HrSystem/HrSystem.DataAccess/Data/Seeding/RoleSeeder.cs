@@ -1,5 +1,7 @@
 ﻿using HrSystem.Common;
+using HrSystem.DataAccess.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace HrSystem.Data.Seeding
 {

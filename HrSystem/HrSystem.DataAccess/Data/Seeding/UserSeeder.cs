@@ -1,6 +1,8 @@
 ﻿using HrSystem.Common;
+using HrSystem.DataAccess.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
 
 namespace HrSystem.Data.Seeding

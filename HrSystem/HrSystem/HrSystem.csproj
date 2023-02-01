@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HrSystem.Common\HrSystem.Common.csproj" />
+    <ProjectReference Include="..\HrSystem.DataAccess\HrSystem.DataAccess.csproj" />
+    <ProjectReference Include="..\HrSystem.Models\HrSystem.Models.csproj" />
   </ItemGroup>
 
 </Project>

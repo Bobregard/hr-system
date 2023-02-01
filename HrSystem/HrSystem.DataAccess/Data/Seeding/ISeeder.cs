@@ -1,4 +1,6 @@
-﻿namespace HrSystem.Data.Seeding
+﻿using HrSystem.DataAccess.Data;
+
+namespace HrSystem.Data.Seeding
 {
     public interface ISeeder
     {

@@ -1,4 +1,8 @@
-﻿namespace HrSystem.Data.Seeding
+﻿using HrSystem.DataAccess.Data;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+namespace HrSystem.Data.Seeding
 {
     public class ApplicationDbContextSeeder : ISeeder
     {
