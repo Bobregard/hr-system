@@ -12,8 +12,9 @@ namespace HrSystem.Models
         public string Requirements { get; set; }
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
+        public int CompanyId { get; set; }
+        public Company? Company { get; set; }
         public bool IsActive { get; set; }
-
     }
 }

@@ -9,6 +9,9 @@ namespace HrSystem.DataAccess.Repository.Interfaces
     public interface IUnitOfWork
     {
         ICompanyRepository CompanyRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
+        IJobRepository JobRepository { get; }
+
         void Save();
     }
 }

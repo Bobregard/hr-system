@@ -1,27 +1,26 @@
-﻿using HrSystem.DataAccess.Repository.Interfaces;
+﻿using HrSystem.Common;
+using HrSystem.DataAccess.Repository.Interfaces;
 using HrSystem.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Build.Framework;
-using System.Collections;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace HrSystem.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class CompaniesController : Controller
+    public class CategoriesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public CompaniesController(IUnitOfWork unitOfWork)
+        public CategoriesController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
+
         public IActionResult Index()
         {
-            var companies = _unitOfWork.CompanyRepository.GetAll();
-            return View(companies);
+            var categories = _unitOfWork.CategoryRepository.GetAll();
+            return View(categories);
         }
 
         public IActionResult Create()
@@ -31,20 +30,20 @@ namespace HrSystem.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Company company)
+        public IActionResult Create(Category category)
         {
-            var existingCompany = _unitOfWork.CompanyRepository.GetFirstOrDefault(c => c.Name == company.Name);
-            if (existingCompany != null)
+            var existingCategory = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => c.Name == category.Name);
+            if (existingCategory != null)
             {
-                ModelState.AddModelError("name", "Company with this name already exists");
+                ModelState.AddModelError("name", "Category with this name already exists");
             }
             if (ModelState.IsValid)
             {
-                _unitOfWork.CompanyRepository.Add(company);
+                _unitOfWork.CategoryRepository.Add(category);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            return View(category);
         }
 
         [HttpGet]
@@ -54,25 +53,25 @@ namespace HrSystem.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var company = _unitOfWork.CompanyRepository.GetFirstOrDefault(c => id == c.Id);
-            if (company == null)
+            var category = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => id == c.Id);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(company);
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Company company)
+        public IActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.CompanyRepository.Update(company);
+                _unitOfWork.CategoryRepository.Update(category);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            return View(category);
         }
 
         [HttpGet]
@@ -82,27 +81,26 @@ namespace HrSystem.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var company = _unitOfWork.CompanyRepository.GetFirstOrDefault(c => c.Id == id);
-            if (company == null)
+            var category = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => c.Id == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(company);
+            return View(category);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var company = _unitOfWork.CompanyRepository.GetFirstOrDefault(c => c.Id == id);
-            if (company == null)
+            var category = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => c.Id == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            _unitOfWork.CompanyRepository.Remove(company);
+            _unitOfWork.CategoryRepository.Remove(category);
             _unitOfWork.Save();
             return RedirectToAction("Index");
         }
-
     }
 }

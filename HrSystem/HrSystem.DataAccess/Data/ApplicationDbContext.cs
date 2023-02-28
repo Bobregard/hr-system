@@ -13,5 +13,7 @@ namespace HrSystem.DataAccess.Data
         }
 
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

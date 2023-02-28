@@ -16,9 +16,13 @@ namespace HrSystem.DataAccess.Repository
         {
             _db = db;
             CompanyRepository = new CompanyRepository(_db);
+            JobRepository = new JobRepository(_db);
+            CategoryRepository= new CategoryRepository(_db);
         }
 
         public ICompanyRepository CompanyRepository { get; private set; }
+        public IJobRepository JobRepository { get; private set; }
+        public ICategoryRepository CategoryRepository { get; private set; }
 
         public void Save()
         {
